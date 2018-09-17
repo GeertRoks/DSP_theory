@@ -11,8 +11,8 @@
 int main(int argc, char const *argv[]) {
   Pulse test;
 
-  AllpassDFII allpass(8, 0.167772);
-  //SchrodingersReverb reverb(60);
+  //AllpassDFII allpass(8, 0.167772);
+  SchrodingersReverb reverb(60);
 
 
 //Put testsignal in buffer
@@ -28,8 +28,8 @@ int main(int argc, char const *argv[]) {
 
 //Give the signal to the filter
   for (int j = 0; j < test.getAmountOfSamples(); j++) {
-    output[j] = allpass.process(output[j]);
-    //output[j] = reverb.process(output[j]);
+    //output[j] = allpass.process(output[j]);
+    output[j] = reverb.process(output[j]);
   }//for
 
 

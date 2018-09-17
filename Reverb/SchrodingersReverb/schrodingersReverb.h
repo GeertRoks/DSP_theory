@@ -15,13 +15,14 @@ public:
 private:
   int reverbTime = 0; //ms ???
 
-  AllpassDFII allpass1 = AllpassDFII(8, 0.167772);
-  AllpassDFII allpass2 = AllpassDFII(16, 0.167772);
+  AllpassDFII allpass1 = AllpassDFII(125, 0.7);
+  AllpassDFII allpass2 = AllpassDFII(42, 0.7);
+  AllpassDFII allpass3 = AllpassDFII(12, 0.7);
 
-  Comb comb1 = Comb(3, 0.6);
-  Comb comb2 = Comb(5, 0.4);
-  Comb comb3 = Comb(7, 0.3);
-  Comb comb4 = Comb(8, 0.2);
+  Comb comb1 = Comb(901, 0.805);
+  Comb comb2 = Comb(778, 0.827);
+  Comb comb3 = Comb(1011, 0.783);
+  Comb comb4 = Comb(1123, 0.764);
 };//class
 
 #endif//SCHRODINGERSREVERB_H_

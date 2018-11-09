@@ -1,7 +1,7 @@
 
 #include <iostream>
 
-#include "Pulse/pulse.h"
+#include "DiracPulse/diracpulse.h"
 
 //Add filters and effects to be tested here:
 #include "../Filters/AllpassDFII/allpassDFII.h"
@@ -9,7 +9,7 @@
 #include "../Reverb/SchrodingersReverb/schrodingersReverb.h"
 
 int main(int argc, char const *argv[]) {
-  Pulse test;
+  Dirac pulse;
 
   //AllpassDFII allpass(8, 0.167772);
   SchrodingersReverb reverb(60);
@@ -17,17 +17,17 @@ int main(int argc, char const *argv[]) {
 
 //Put testsignal in buffer
   float *output;
-  output = test.fire();
+  output = pulse.fire();
 
 //Plot Test Signal
   std::cout << "Test Signaal" << '\n';
-  for (int i = 0; i < test.getAmountOfSamples(); i++) {
+  for (int i = 0; i < pulse.getAmountOfSamples(); i++) {
     std::cout << "output " << i << ": " << *(output + i) << '\n';
   }//for
 
 
 //Give the signal to the filter
-  for (int j = 0; j < test.getAmountOfSamples(); j++) {
+  for (int j = 0; j < pulse.getAmountOfSamples(); j++) {
     //output[j] = allpass.process(output[j]);
     output[j] = reverb.process(output[j]);
   }//for
@@ -35,7 +35,7 @@ int main(int argc, char const *argv[]) {
 
 //Plot the impulse Response
   std::cout << "Signaal na systeem" << '\n';
-  for (int i = 0; i < test.getAmountOfSamples(); i++) {
+  for (int i = 0; i < pulse.getAmountOfSamples(); i++) {
     std::cout << "output " << i << ": " << output[i] << '\n';
   }//for
 

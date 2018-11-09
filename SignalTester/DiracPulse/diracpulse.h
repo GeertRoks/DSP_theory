@@ -1,5 +1,5 @@
-#ifndef PULSE_H_
-#define PULSE_H_
+#ifndef DIRAC_H_
+#define DIRAC_H_
 
 #ifndef AMOUNT_OF_SAMPLES
 #define AMOUNT_OF_SAMPLES 40
@@ -7,10 +7,10 @@
 #endif //variables
 
 
-class Pulse {
+class Dirac {
 public:
-  Pulse ();
-  virtual ~Pulse ();
+  Dirac ();
+  virtual ~Dirac ();
 
   float *fire();
   void plot(float *input);
@@ -20,4 +20,4 @@ public:
 private:
 };//class
 
-#endif//PULSE_H_
+#endif//DIRAC_H_

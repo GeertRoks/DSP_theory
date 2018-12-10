@@ -7,13 +7,14 @@
 #include "../Filters/AllpassDFII/allpassDFII.h"
 #include "../Filters/Comb/comb.h"
 #include "../Reverb/SchrodingersReverb/schrodingersReverb.h"
+#include "../Filters/TKEO/tkeo.hpp"
 
 int main(int argc, char const *argv[]) {
   Dirac pulse;
 
   //AllpassDFII allpass(8, 0.167772);
-  SchrodingersReverb reverb(60);
-
+  //SchrodingersReverb reverb(60);
+  TKEO tkeo;
 
 //Put testsignal in buffer
   float *output;
@@ -29,7 +30,8 @@ int main(int argc, char const *argv[]) {
 //Give the signal to the filter
   for (int j = 0; j < pulse.getAmountOfSamples(); j++) {
     //output[j] = allpass.process(output[j]);
-    output[j] = reverb.process(output[j]);
+    //output[j] = reverb.process(output[j]);
+    output[j] = tkeo.process(output[j]);
   }//for
 
 

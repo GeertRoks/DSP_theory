@@ -1,16 +1,16 @@
 
-#include "pulse.h"
+#include "diracpulse.h"
 
-Pulse::Pulse() {
+Dirac::Dirac() {
 
-}//Pulse()
+}//Dirac()
 
-Pulse::~Pulse() {
+Dirac::~Dirac() {
 
-}//~Pulse()
+}//~Dirac()
 
 
-float *Pulse::fire() {
+float *Dirac::fire() {
   static float signalArray[AMOUNT_OF_SAMPLES];
   for (int i = 0; i < AMOUNT_OF_SAMPLES; i++) {
     if (i == PULSE_SAMPLE) {
@@ -22,14 +22,14 @@ float *Pulse::fire() {
   return signalArray;
 }//fire()
 
-void Pulse::plot(float *input) {
+void Dirac::plot(float *input) {
 
 }//plot()
 
-int Pulse::getAmountOfSamples() {
+int Dirac::getAmountOfSamples() {
   return AMOUNT_OF_SAMPLES;
 }//getAmountOfSamples()
 
-int Pulse::getPulseSample() {
+int Dirac::getPulseSample() {
   return PULSE_SAMPLE;
 }//getPulseSample()

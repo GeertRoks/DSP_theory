@@ -5,9 +5,9 @@ LDLIBS =
 
 
 # the folders where it searches for module.mk files
-SUBMODULES := ../Reverb
+SUBMODULES := ../Filters
 
-MODULES := Pulse
+MODULES := DiracPulse
 
 # each module will add the source files to this
 SRC := main.o

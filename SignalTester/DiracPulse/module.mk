@@ -1,4 +1,4 @@
-PWD = Pulse
+PWD = DiracPulse
 
 SRC+= $(PWD)/diracpulse.cpp
 

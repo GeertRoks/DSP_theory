@@ -3,7 +3,7 @@
 //  #   Author:     Geert Roks, 2018
 //  #   Github:     www.github.com/GeertRoks/DSP_theory
 //  #
-//  #   License:
+//  #   License:    MIT License, see included LICENSE.md file
 //  #
 //  ##############################################################################
 

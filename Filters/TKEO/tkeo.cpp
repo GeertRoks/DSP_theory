@@ -1,3 +1,11 @@
+//  ##############################################################################
+//  #
+//  #   Author:     Geert Roks, 2018
+//  #   Github:     www.github.com/GeertRoks/DSP_theory
+//  #
+//  #   License:    MIT License, see included LICENSE.md file
+//  #
+//  ##############################################################################
 
 #include "tkeo.hpp"
 

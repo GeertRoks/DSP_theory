@@ -4,7 +4,7 @@
 //  #   Github:     www.github.com/GeertRoks/DSP_theory
 //  #   Reference:  http://www.katjaas.nl/hilbert/hilbert.html Polyphase IIR
 //  #
-//  #   License:
+//  #   License:    MIT License, see included LICENSE.md file
 //  #
 //  ##############################################################################
 

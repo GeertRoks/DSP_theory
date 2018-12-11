@@ -8,13 +8,17 @@
 #include "../Filters/Comb/comb.h"
 #include "../Reverb/SchrodingersReverb/schrodingersReverb.h"
 #include "../Filters/TKEO/tkeo.hpp"
+#include "../Filters/BiquadDFII/biquadDFII.hpp"
+#include "../Filters/Hilbert/hilbert.hpp"
 
 int main(int argc, char const *argv[]) {
   Dirac pulse;
 
   //AllpassDFII allpass(8, 0.167772);
   //SchrodingersReverb reverb(60);
-  TKEO tkeo;
+  //TKEO tkeo;
+  //BiquadDFII biquad(0.0,0.0,0.055437245465,-1.357645019878,0.9216);
+  Hilbert hilbert;
 
 //Put testsignal in buffer
   float *output;
@@ -31,7 +35,9 @@ int main(int argc, char const *argv[]) {
   for (int j = 0; j < pulse.getAmountOfSamples(); j++) {
     //output[j] = allpass.process(output[j]);
     //output[j] = reverb.process(output[j]);
-    output[j] = tkeo.process(output[j]);
+    //output[j] = tkeo.process(output[j]);
+    //output[j] = biquad.process(output[j]);
+    output[j] = hilbert.processReal(output[j]);
   }//for
 
 

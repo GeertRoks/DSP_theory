@@ -29,7 +29,7 @@ Hilbert::~Hilbert() {
 }
 
 std::array<double, 2> Hilbert::process(double input) {
-//  Output both the real and Imaginary signals in a vector
+//  Return both the real and imaginary signals in an array
 
     double realsig = processReal(input);
     double imgsig = processImg(input);
@@ -40,7 +40,7 @@ std::array<double, 2> Hilbert::process(double input) {
 }
 
 double Hilbert::processReal(double input) {
-//  Output only the real signal
+//  Return the real signal
 
     double realsig = this->biquadr1->process(input);
     realsig = this->biquadr2->process(realsig);
@@ -50,7 +50,7 @@ double Hilbert::processReal(double input) {
 }
 
 double Hilbert::processImg(double input) {
-// Output only the imaginary signal
+// Return the imaginary signal
 
     double imgsig = this->biquadi1->process(this->delayedInput);
     imgsig = this->biquadi2->process(imgsig);
@@ -61,6 +61,7 @@ double Hilbert::processImg(double input) {
 }
 
 void Hilbert::reset() {
+// Reset all memory of the biquads to 0.0
     this->biquadr1->reset();
     this->biquadr2->reset();
     this->biquadr3->reset();

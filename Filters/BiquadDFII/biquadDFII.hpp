@@ -18,6 +18,7 @@ public:
   virtual ~BiquadDFII ();
 
   double process(double x);
+  void reset();
 
 private:
   void tick();

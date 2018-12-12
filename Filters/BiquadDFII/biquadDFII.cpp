@@ -46,3 +46,7 @@ void BiquadDFII::tick(){
 
     index = !index;
 }
+
+void BiquadDFII::reset() {
+    filterBuffer = {0.0, 0.0};
+}

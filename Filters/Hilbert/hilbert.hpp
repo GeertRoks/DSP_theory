@@ -22,6 +22,8 @@ public:
     double processReal(double input);
     double processImg(double input);
 
+    void reset();
+
 private:
     double a0, a1 = 0;
 

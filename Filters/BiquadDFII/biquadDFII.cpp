@@ -8,10 +8,9 @@
 //  ##############################################################################
 
 #include "biquadDFII.hpp"
-#include <iostream>
 
 BiquadDFII::BiquadDFII(double a0, double a1, double a2, double b1, double b2) {
-    std::vector<double> filterBuffer = {0,0};
+    this->filterBuffer = {0,0};
     this->a0 = a0;
     this->a1 = a1;
     this->a2 = a2;

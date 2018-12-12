@@ -7,8 +7,10 @@
 //  #
 //  ##############################################################################
 
-#ifndef BIQUADDFII_H
-#define BIQUADDFII_H
+#ifndef BIQUADDFII_HPP
+#define BIQUADDFII_HPP
+
+#include <array>
 
 class BiquadDFII {
 public:
@@ -23,9 +25,9 @@ private:
 
   double a0, a1, a2, b1, b2 = 0;  //filtercoefficents
 
-  std::vector<double> filterBuffer;
+  std::array<double, 2> filterBuffer;
   unsigned int index = 0;
 
 };//class
 
-#endif//BIQUADDFII_H
+#endif//BIQUADDFII_HPP

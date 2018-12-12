@@ -18,7 +18,7 @@ public:
     Hilbert();
     virtual ~Hilbert ();
 
-    std::vector<double> process(double input);
+    std::array<double, 2> process(double input);
     double processReal(double input);
     double processImg(double input);
 

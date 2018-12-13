@@ -36,7 +36,7 @@ Test: $(OBJ)
 
 clean:
 	rm $(OBJ)
-	rm Test.exe
+	rm Test
 
 .PHONY: all clean
 

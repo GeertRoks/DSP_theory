@@ -6,18 +6,19 @@
 #define PULSE_SAMPLE 10
 #endif //variables
 
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
 class Dirac {
 public:
-  Dirac ();
-  virtual ~Dirac ();
+    Dirac(const unsigned int amountOfSamples, const unsigned int pulseSample);
 
-  float *fire();
-  void plot(float *input);
+    std::vector<double> getPulse() const;
+    void getInfo() const;
 
-  int getAmountOfSamples();
-  int getPulseSample();
 private:
-};//class
+    std::vector<double> pulse = {};
+};
 
 #endif//DIRAC_H_

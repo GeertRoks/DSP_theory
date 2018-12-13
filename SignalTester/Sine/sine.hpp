@@ -15,6 +15,8 @@ public:
     void setSamplerate(const unsigned int samplerate);
     void setFreq(double freq);
 
+    double getPhasestep() const;
+
 private:
     unsigned int samplerate = 48000;    //Hz
     double freq = 440;                  //Hz

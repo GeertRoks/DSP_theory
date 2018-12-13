@@ -13,6 +13,7 @@ Sine::Sine(double freq, double samplerate) {
 }
 
 std::vector<double> Sine::getSine(const unsigned int length_ms) {
+    calcPhasestep();
     std::vector<double> sine = {};
     for (unsigned int i = 0; i < length_ms * 0.001 * samplerate; i++) {
         sine.push_back(generateSine());
@@ -22,12 +23,10 @@ std::vector<double> Sine::getSine(const unsigned int length_ms) {
 
 void Sine::setSamplerate(const unsigned int samplerate) {
     this->samplerate = samplerate;
-    calcPhasestep();
 }
 
 void Sine::setFreq(double freq) {
     this->freq = freq;
-    calcPhasestep();
 }
 
 double Sine::generateSine() {
@@ -45,4 +44,8 @@ double Sine::generateSine() {
 void Sine::calcPhasestep() {
     phase = 0.0;
     phasestep = (twoPi / samplerate) * freq;
+}
+
+double Sine::getPhasestep() const {
+    return phasestep;
 }

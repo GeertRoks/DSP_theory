@@ -3,4 +3,4 @@ A collection of all filters and effects I've made. Including a tool to check the
 
 TODO:
   - Make a library of it (with namespace?)
-  - Add GNUplot
+  - Use `#include "gnuplot-iostream.h"` to generate a plot automatically.

@@ -3,6 +3,7 @@
 #include <iomanip>
 
 #include "DiracPulse/diracpulse.h"
+#include "Sine/sine.hpp"
 
 //Add filters and effects to be tested here:
 #include "../Filters/TKEO/tkeo.hpp"
@@ -10,11 +11,11 @@
 
 int main() {
     const Dirac pulse(40, 10);
+    Sine sine(50);
 
 // Initialize systems/filters to be tested.
     //TKEO tkeo;
     Hilbert hilbert;
-
 
 // Print Labels
     std::cout << std::setw(20) << std::left << "Input" << "| ";
@@ -22,7 +23,7 @@ int main() {
     std::cout << std::setw(20) << std::left << "Output 2" << std::endl;
 
 // Print data per signal
-    for(auto i : pulse.getPulse()) {
+    for(auto i : sine.getSine(1)) {
         std::cout << std::setw(20) << std::left << i << "| ";
         std::cout << std::setw(20) << std::left << hilbert.processReal(i) << "| ";
         std::cout << std::setw(20) << std::left << hilbert.processImg(i) << std::endl;

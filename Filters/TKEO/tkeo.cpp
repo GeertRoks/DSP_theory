@@ -37,7 +37,7 @@ void TKEO::updateBuffer(double input) {
 void TKEO::tick(){
 // Increase the index of the buffer
 
-  index != index;
+  index = !index;
 }
 
 void TKEO::reset() {

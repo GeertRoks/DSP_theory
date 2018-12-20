@@ -10,17 +10,21 @@
 #ifndef TKEO_H_
 #define TKEO_H_
 
+#include <array>
+
 class TKEO {
 public:
-    TKEO ();
-    virtual ~TKEO ();
+    TKEO();
+    virtual ~TKEO();
 
-    float process(float x);
+    double process(double x);
+    void reset();
+
 private:
     void tick();
-    void updateBuffer(float x);
+    void updateBuffer(double x);
 
-    float *filterBuffer;
+    std::array<double, 2> filterBuffer;
     unsigned int index = 0;
 };
 

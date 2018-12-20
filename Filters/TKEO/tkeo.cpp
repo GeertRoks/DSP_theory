@@ -10,41 +10,36 @@
 #include "tkeo.hpp"
 
 TKEO::TKEO() {
-    filterBuffer = new float[2];
-    for(unsigned int i = 0; i < 2; i++) {
-      filterBuffer[i] = 0;
-    }//for
+    this->filterBuffer = {0,0};
 }
 
 TKEO::~TKEO(){
-    delete filterBuffer;
-    filterBuffer = nullptr;
 }
 
-float TKEO::process(float x) {
-/*
- *  Calculates the filtered sample
- */
+double TKEO::process(double x) {
+// Calculates the filtered sample
 
   //x is input (x[n]) and y is output (y[n])
   // y[t] = x^2[t] - x[t-1] * x[t+1]
-  float y = filterBuffer[(index - 1) % 2] * filterBuffer[(index - 1) % 2] - filterBuffer[index] * x;
-  updateBuffer(y);
+  // y[t] = x^2[t-1] - x[t-2] * x[t]
+  double y = filterBuffer[!index] * filterBuffer[!index] - filterBuffer[index] * x;
+  updateBuffer(x);
   return y;
-}//process()
+}
 
-void TKEO::updateBuffer(float input) {
-/*
- *  Fill the buffer with the new sample
- */
+void TKEO::updateBuffer(double input) {
+// Fill the buffer with the new sample
+
   filterBuffer[index] = input;
   tick();
-}//updateBuffer()
+}
 
 void TKEO::tick(){
-/*
- *  Increase the index of the buffer
- */
-  index++;
-  index = (index % 2);
-}//tick()
+// Increase the index of the buffer
+
+  index != index;
+}
+
+void TKEO::reset() {
+    filterBuffer = {0.0, 0.0};
+}

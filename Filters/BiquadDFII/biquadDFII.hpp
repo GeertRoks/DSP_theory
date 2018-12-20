@@ -14,8 +14,8 @@
 
 class BiquadDFII {
 public:
-  BiquadDFII (double a0, double a1, double a2, double b1, double b2);
-  virtual ~BiquadDFII ();
+  BiquadDFII(double a0, double a1, double a2, double b1, double b2);
+  virtual ~BiquadDFII();
 
   double process(double x);
   void reset();

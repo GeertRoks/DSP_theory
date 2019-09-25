@@ -5,10 +5,11 @@
 #include "sample1.h"
 #include "sample2.h"
 
-// int sizes[3] = {209455,209455,209455};
-//
-// int getLength(int input)
-// {
-// 	return sizes[input];
-// }
+int sample_sizes[3] = {209455,209455,209455};
+
+int getLength(int input)
+{
+	return sample_sizes[input];
+}
+
 #endif

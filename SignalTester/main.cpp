@@ -6,7 +6,6 @@
 #include "Sine/sine.hpp"
 #include "playsoundfile/playfile.hpp"
 #include "plot/plot.hpp"
-
 //Add filters and effects to be tested here:
 #include "../Filters/TKEO/tkeo.hpp"
 #include "../Filters/Hilbert/hilbert.hpp"
@@ -27,7 +26,7 @@ int main() {
 
 // Print data per signal
     //for(auto i : sine.getSine(1)) {
-    for(auto i : file.getSamples(100)) {
+    for(auto i : file.getSamples(getLength(0))) {
         std::cout << std::setw(20) << std::left << i << "| ";
         std::cout << std::setw(20) << std::left << hilbert.processReal(i) << "| ";
         std::cout << std::setw(20) << std::left << hilbert.processImg(i) << std::endl;

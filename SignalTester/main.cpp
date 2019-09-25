@@ -4,6 +4,7 @@
 
 #include "DiracPulse/diracpulse.h"
 #include "Sine/sine.hpp"
+#include "playsoundfile/playfile.hpp"
 #include "plot/plot.hpp"
 
 //Add filters and effects to be tested here:
@@ -13,6 +14,7 @@
 int main() {
     const Dirac pulse(40, 10);
     Sine sine(50);
+    Playfile file("test");
 
 // Initialize systems/filters to be tested.
     //TKEO tkeo;
@@ -24,7 +26,8 @@ int main() {
     std::cout << std::setw(20) << std::left << "Output 2" << std::endl;
 
 // Print data per signal
-    for(auto i : sine.getSine(1)) {
+    //for(auto i : sine.getSine(1)) {
+    for(auto i : file.getSamples(100)) {
         std::cout << std::setw(20) << std::left << i << "| ";
         std::cout << std::setw(20) << std::left << hilbert.processReal(i) << "| ";
         std::cout << std::setw(20) << std::left << hilbert.processImg(i) << std::endl;

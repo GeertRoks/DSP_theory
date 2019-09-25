@@ -7,7 +7,7 @@ LDLIBS =
 # the folders where it searches for module.mk files
 SUBMODULES := ../Filters
 
-MODULES := DiracPulse Sine plot
+MODULES := DiracPulse Sine plot playsoundfile
 
 # each module will add the source files to this
 SRC := main.o

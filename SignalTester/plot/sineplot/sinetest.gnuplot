@@ -26,7 +26,7 @@ set format x '%0.Pπ'
 set ytics 1
 set tics scale 0.75
 
-set xrange [0:20*pi]
+set xrange [0:209455]
 set yrange [-1.5:1.5]
 set grid
 set key

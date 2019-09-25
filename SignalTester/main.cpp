@@ -34,16 +34,22 @@ int main() {
     }
 
 // Extract the data to a .dat file for gnuplot
-    std::vector<double> hilbertSineReal, hilbertSineImg = {};
-    for(auto i : sine.getSine(500)) {
-        hilbertSineReal.push_back(hilbert.processReal(i));
-        hilbertSineImg.push_back(hilbert.processImg(i));
+    std::vector<float> hilbertSineReal, hilbertSineImg = {};
+    std::vector<float> envelopeFolower = {};
+    //for(auto i : sine.getSine(500)) {
+    for(auto i : file.getSamples(209455)) {
+        // hilbertSineReal.push_back(hilbert.processReal(i));
+        // hilbertSineImg.push_back(hilbert.processImg(i));
+        envelopeFolower.push_back(sqrt(pow(hilbert.processReal(i), 2) - pow(hilbert.processImg(i), 2)));
     }
 
     Plot plot("sineplot/sinetest.dat");
-    plot.writeToFile(sine.getSine(500), sine.getPhasestep(), 5.29 * M_PI);
-    plot.writeToFile(hilbertSineReal, sine.getPhasestep(),  5.29 * M_PI);
-    plot.writeToFile(hilbertSineImg, sine.getPhasestep(),  5.29 * M_PI);
+    //plot.writeToFile(sine.getSine(500), sine.getPhasestep(), 5.29 * M_PI);
+    plot.writeToFile(file.getSamples(209455), 1, 0);
+    plot.writeToFile(envelopeFolower, 1, 0);
+
+    // plot.writeToFile(hilbertSineReal, sine.getPhasestep(),  5.29 * M_PI);
+    // plot.writeToFile(hilbertSineImg, sine.getPhasestep(),  5.29 * M_PI);
     plot.close();
 
   return 0;

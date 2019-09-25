@@ -7,7 +7,7 @@ Plot::Plot(std::string name) {
     data.open("plot/" + name);
 }
 
-void Plot::writeToFile(std::vector<double> sig, double idxstep, double idxoffset) {
+void Plot::writeToFile(std::vector<float> sig, double idxstep, double idxoffset) {
     double idx = 0.0;
     for(unsigned int i = idxoffset/idxstep; i < sig.size(); i++) {
         data << idx << " " << sig[i] << std::endl;

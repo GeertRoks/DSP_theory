@@ -1,15 +1,22 @@
-#ifndef _SIZES_H_
-#define _SIZES_H_
+#ifndef SampleSizes_h
+#define SampleSizes_h
 
 #include "sample0.h"
 #include "sample1.h"
 #include "sample2.h"
 
-int sample_sizes[3] = {209455,209455,209455};
+class SampleSizes {
+public:
+    SampleSizes(){};
+    ~SampleSizes(){};
+    int getSize(int sample);
+protected:
+    int sampleSizes[3] = {209455,209455,209455};
+};
 
-int getLength(int input)
+inline int SampleSizes::getSize(int sample) 
 {
-	return sample_sizes[input];
+    return sampleSizes[sample];
 }
 
 #endif

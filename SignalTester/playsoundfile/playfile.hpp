@@ -11,7 +11,7 @@ public:
   Playfile();
   Playfile(std::string file);
 
-  std::vector<float> getSamples(const unsigned int num_samples);
+  float getSample(const unsigned int num_samples);
 
 private:
 

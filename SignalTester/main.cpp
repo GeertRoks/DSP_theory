@@ -5,11 +5,11 @@
 #include "Sine/sine.hpp"
 #include "playsoundfile/playfile.hpp"
 #include "plot/plot.hpp"
+#include "gnuplotter/gnuplotter.h"
 //Add filters and effects to be tested here:
 #include "../Filters/TKEO/tkeo.hpp"
 #include "../Filters/Hilbert/hilbert.hpp"
 #include "playsoundfile/exported/sizes.h"
-#include "gnuplotter/gnuplotter.h"
 
 int main() {
 
@@ -17,8 +17,6 @@ int main() {
 
     gnu = open_gnu_plot_file();
 
-    const Dirac pulse(40, 10);
-    Sine sine(50);
     Playfile file("test");
 
     // Initialize systems/filters to be tested.
@@ -26,28 +24,17 @@ int main() {
     Hilbert hilbert;
     SampleSizes samples;
 
-    // Print Labels
-    //std::cout << std::setw(20) << std::left << "Input" << "| ";
-    //std::cout << std::setw(20) << std::left << "Output 1" << "| ";
-    //std::cout << std::setw(20) << std::left << "Output 2" << std::endl;
-
-    // Print data per signal
-    //for(auto i : sine.getSine(1)) {
     for (int i = 0; i < samples.getSize(0); i++) 
     {
         float sample = file.getSample(i);
-        print_to_gnu_plot((float)i, hilbert.processImg(sample), gnu);
-        print_to_gnu_plot((float)i, hilbert.processReal(sample), gnu);
+        float realSig = hilbert.processReal(sample);
+        float imgSig = hilbert.processImg(sample);
+        float transient = sqrt(abs(pow(realSig, 2) - pow(imgSig, 2)));
+        print_to_gnu_plot((float)i, transient, gnu);
+        //print_to_gnu_plot((float)i, hilbert.processReal(sample), gnu);
     }
-
-    // Extract the data to a .dat file for gnuplot
-    //std::vector<double> hilbertSineReal, hilbertSineImg = {};
-    //for(auto i : sine.getSine(500)) {
-    //    hilbertSineReal.push_back(hilbert.processReal(i));
-    //    hilbertSineImg.push_back(hilbert.processImg(i));
-    //}
 
     refresh_gnu_plot(gnu);
 
-  return 0;
+    return 0;
 }

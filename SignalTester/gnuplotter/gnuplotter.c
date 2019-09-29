@@ -5,6 +5,7 @@ FILE* open_gnu_plot_file()
     const char* name="FloatSignal";
     FILE* gnuplot_pipe = popen ("gnuplot -persistent", "w");
     fprintf(gnuplot_pipe, "set title '%s'\n", name);
+    fprintf(gnuplot_pipe, "set pointsize 0.01\n");
     fprintf(gnuplot_pipe, "plot '-'\n");
 
     return gnuplot_pipe;

@@ -8,8 +8,9 @@
 
 class Plot {
 public:
-    Plot(std::string name);
+    Plot(std::string filepath);
 
+    void comment(std::string comment);
     void writeToFile(std::vector<double> sig, double idxstep = 1.0, double idxoffset = 0.0);
     void close();
 
